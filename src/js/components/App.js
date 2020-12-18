@@ -1,13 +1,10 @@
 import React from "react";
-import List from "./List";
-import Form from "./Form";
+import TypingArea from "./TypingArea";
 
 const App = () => (
 	<div>
 		<h2>Articles</h2>
-		<List />
-		<h2>Add a new article</h2>
-		<Form />
+		<TypingArea />
 	</div>
 );
 
