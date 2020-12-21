@@ -3,7 +3,7 @@
 Writing our article and saving it to the local.
 The project is praticing for react-redux.
 
-Ongoing function
+### Ongoing function
 - use the text editor to write
 - edit article
 - save article as file to local 
