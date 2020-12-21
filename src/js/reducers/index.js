@@ -1,4 +1,4 @@
-import { ADD_ARTICLE, SWITCH_MODE } from '../constants/action-types';
+import { ADD_ARTICLE, SWITCH_MODE, SELECTED_ID } from '../constants/action-types';
 
 const initialState = {
 	articles: [
@@ -11,15 +11,14 @@ const initialState = {
 		}
 	],
 	mode: "edit",	//mode: edit & read
-	currentArticleId: "1608529481135",	// 當選擇的文章
+	selectedArticleId: "1608529481135",	// 當選擇的文章
 };
 
 function rootReducer(state = initialState, action) {
 	const { type, payload } = action;
-	let newState = { ...state };
 	// add new Article
 	if (type === ADD_ARTICLE) {
-		newState = Object.assign({}, state, {
+		let newState = Object.assign({}, state, {
 			articles: state.articles.concat({
 				userId: state.articles.length,
 				id: state.articles.length,
@@ -32,12 +31,23 @@ function rootReducer(state = initialState, action) {
 	}
 	// change mode
 	if (type === SWITCH_MODE) {
-		newState = Object.assign({}, state, {
+		let newState = Object.assign({}, state, {
 			mode: state.mode === 'edit' ? 'read' : 'edit'
 		})
 		console.log('mode:' + newState.mode);
+		return newState;
 	}
-	return newState;
+	// update selectedArticleId
+	if (type === SELECTED_ID) {
+		let newState = Object.assign({}, state, {
+			selectedArticleId: payload.selectedId
+		})
+		console.log('selectedId:' + newState.selectedArticleId);
+		
+		return newState;
+	}
+
+	return state;
 };
 
 export default rootReducer;

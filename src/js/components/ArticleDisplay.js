@@ -1,12 +1,12 @@
 import { connect } from "react-redux";
 
 const mapStateToProps = state => {
-	return { articles: state.articles, currentArticleId: state.currentArticleId }
+	return { articles: state.articles, selectedArticleId: state.selectedArticleId }
 }
 // 篩選出當前選擇的Article
-function ConnectedArticleDisplay({ articles, currentArticleId }) {
+function ConnectedArticleDisplay({ articles, selectedArticleId }) {
 	let article = articles.filter(article => {
-		return article.articleId === currentArticleId;
+		return article.articleId === selectedArticleId;
 	})
 	article = article[0];
 	const { title, body } = article;
