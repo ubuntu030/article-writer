@@ -7,7 +7,7 @@ const mapDispatchToProps = dispatch => {
 	}
 }
 
-const connectedSwitchModeBtn = props => {
+const ConnectedSwitchModeBtn = props => {
 	return (
 		<button onClick={props.switchMode}>Mode</button>
 	)
@@ -16,6 +16,6 @@ const connectedSwitchModeBtn = props => {
 const SwitchModeBtn = connect(
 	null,
 	mapDispatchToProps
-)(connectedSwitchModeBtn);
+)(ConnectedSwitchModeBtn);
 
 export default SwitchModeBtn;

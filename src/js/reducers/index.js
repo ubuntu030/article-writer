@@ -5,16 +5,18 @@ const initialState = {
 		{
 			"userId": 0,
 			"id": 0,
+			"articleId": "1608529481135",
 			"title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
 			"body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
 		}
 	],
-	mode: "edit" //mode: edit & read
+	mode: "edit",	//mode: edit & read
+	currentArticleId: "1608529481135",	// 當選擇的文章
 };
 
 function rootReducer(state = initialState, action) {
 	const { type, payload } = action;
-	let newState
+	let newState = { ...state };
 	// add new Article
 	if (type === ADD_ARTICLE) {
 		newState = Object.assign({}, state, {
@@ -33,8 +35,8 @@ function rootReducer(state = initialState, action) {
 		newState = Object.assign({}, state, {
 			mode: state.mode === 'edit' ? 'read' : 'edit'
 		})
+		console.log('mode:' + newState.mode);
 	}
-	console.log('mode:' + newState.mode);
 	return newState;
 };
 
