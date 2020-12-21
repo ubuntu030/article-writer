@@ -21,9 +21,9 @@ function rootReducer(state = initialState, action) {
 		let newState = Object.assign({}, state, {
 			articles: state.articles.concat({
 				userId: state.articles.length,
-				id: state.articles.length,
 				title: payload.title,
-				body: payload.content
+				body: payload.content,
+				articleId: new Date().getTime()
 			})
 		})
 		console.log(newState.articles);
@@ -43,7 +43,7 @@ function rootReducer(state = initialState, action) {
 			selectedArticleId: payload.selectedId
 		})
 		console.log('selectedId:' + newState.selectedArticleId);
-		
+
 		return newState;
 	}
 
