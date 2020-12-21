@@ -31,17 +31,20 @@ class ConnectedArticleList extends Component {
 	render() {
 		const { articles } = this.props
 		return (
-			<ul>
-				{
-					articles.map(article => {
-						return (
-							<li key={article.articleId} data-id={article.articleId} onClick={this.handleClick}>
-								{article.title}
-							</li>
-						)
-					})
-				}
-			</ul>
+			<div>
+				<h2>Artile List</h2>
+				<ul>
+					{
+						articles.map(article => {
+							return (
+								<li key={article.articleId} data-id={article.articleId} onClick={this.handleClick}>
+									{article.title}
+								</li>
+							)
+						})
+					}
+				</ul>
+			</div>
 		)
 	}
 }
