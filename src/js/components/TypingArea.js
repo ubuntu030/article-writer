@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addArticle } from '../actions';
+import '../../css/flex.css';
 
 const mapDispatchToProps = dispatch => {
 	return {
@@ -34,10 +35,10 @@ class connectedTypingArea extends Component {
 	render() {
 		const self = this;
 		return (
-			<form action="" onSubmit={self.handleSubmit}>
-				<input name="title" id="title" type="text" onChange={self.handleChange} value={self.state.title} />
-				<textarea name="content" id="content" cols="50" rows="50" onChange={self.handleChange} value={self.state.content}></textarea>
-				<input type="submit" value="Submit" />
+			<form className="flex-column" action="" onSubmit={self.handleSubmit}>
+				Title:<input className="flex-item" name="title" id="title" type="text" onChange={self.handleChange} value={self.state.title} />
+				Article<textarea className="flex-item" name="content" id="content" cols="50" rows="50" onChange={self.handleChange} value={self.state.content}></textarea>
+				<input className="flex-horizontal-center" type="submit" value="Submit" />
 			</form>
 		)
 	}
