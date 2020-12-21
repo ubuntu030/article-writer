@@ -23,7 +23,7 @@ function rootReducer(state = initialState, action) {
 				userId: state.articles.length,
 				title: payload.title,
 				body: payload.content,
-				articleId: new Date().getTime()
+				articleId: new Date().getTime().toString()
 			})
 		})
 		console.log(newState.articles);
