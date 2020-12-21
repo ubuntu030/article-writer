@@ -1,3 +1,14 @@
+# About The Project
+
+Writing our article and saving it to the local.
+The project is praticing for react-redux.
+
+Ongoing function
+- use the text editor to write
+- edit article
+- save article as file to local 
+- UI reshap
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
