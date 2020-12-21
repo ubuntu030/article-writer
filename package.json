@@ -1,5 +1,5 @@
 {
-  "name": "redux-todo",
+  "name": "article-writer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
