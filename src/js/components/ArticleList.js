@@ -1,8 +1,6 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { selectedId } from '../actions';
-
-
 import '../../css/flex.css';
 
 const mapStateToProps = function (state) {
@@ -20,7 +18,6 @@ class ConnectedArticleList extends Component {
 		super(props)
 		this.handleClick = this.handleClick.bind(this)
 	}
-
 	// 處理點擊個別文章
 	handleClick(event) {
 		const elm = event.target

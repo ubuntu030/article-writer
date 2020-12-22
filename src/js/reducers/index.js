@@ -12,6 +12,7 @@ const initialState = {
 	],
 	mode: "edit",	//mode: edit & read
 	selectedArticleId: "1608529481135",	// 當選擇的文章
+	selectedArticle: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -20,7 +21,7 @@ function rootReducer(state = initialState, action) {
 	if (type === ADD_ARTICLE) {
 		let newState = Object.assign({}, state, {
 			articles: state.articles.concat({
-				userId: state.articles.length,
+				userId: 0,
 				title: payload.title,
 				body: payload.content,
 				articleId: new Date().getTime().toString()
@@ -39,8 +40,16 @@ function rootReducer(state = initialState, action) {
 	}
 	// update selectedArticleId
 	if (type === SELECTED_ID) {
+		let { selectedId } = payload;
+		let fltrArticle = {};
+		if (selectedId && typeof selectedId === 'string') {
+			fltrArticle = state.articles.filter(article => {
+				return article.articleId === selectedId;
+			})
+		}
 		let newState = Object.assign({}, state, {
-			selectedArticleId: payload.selectedId
+			selectedArticleId: selectedId,
+			selectedArticle: fltrArticle[0]
 		})
 		console.log('selectedId:' + newState.selectedArticleId);
 
